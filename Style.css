@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar ul li {
+    margin: 0 1rem;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+.game-board {
+    width: 100%; /* Largura da área do jogo */
+    height: 100%; /* Altura da área do jogo */
+    border: 1px solid #333; /* Borda da área do jogo */
+    margin: 0 auto; /* Centraliza a área do jogo horizontalmente */
+    position: relative; /* Define a posição relativa para os elementos filhos */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites da div */
+}
+
+.bola {
+    position: absolute; /* Define a posição absoluta para o cano */
+    bottom: 0; /* Alinha o cano na parte inferior da div .game-board */
+    width: 300px; /* Largura do cano */
+    animation: pipe-animation 2s infinite linear; /* Aplica uma animação de movimento ao cano */
+}
+
+.cuphead {
+    width: 250px; /* Largura do personagem Mario */
+    position: absolute; /* Define a posição absoluta para o personagem Mario */
+    bottom: 0; /* Alinha o personagem Mario na parte inferior da div .game-board */
+}
+
+.pulo {
+    animation: pulo 500ms ease-out; /* Aplica uma animação de pulo ao personagem Mario */
+}
+
+.cj {
+    position: absolute;
+    animation: cj 500ms linear;
+    width:5%;
+    height: 5%;
+}
+
+
+@keyframes cj {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px; /* Define a posição inicial do cano fora da área visível */
+    }
+    to {
+        right: 100%; /* Move o cano para a direita até a borda direita da div .game-board */
+    }
+    0% {
+        bottom: 0px; /* Posição inicial do pulo (no chão) */
+    }
+    40% {
+        bottom: 200px; /* Posição intermediária do pulo (altura máxima) */
+    }
+    50% {
+        bottom: 0px; /* Posição intermediária do pulo (altura máxima) */
+    }
+    60% {
+        bottom: 200px; /* Posição intermediária do  pulo (altura máxima) */
+    }
+    100% {
+        bottom: 0; /* Posição final do pulo (de volta ao chão) */
+    }  
+}
+
+/* Define a animação de pulo para o personagem Mario */
+@keyframes pulo {
+    0% {
+        bottom: 0; /* Posição inicial do pulo (no chão) */
+    }
+    40% {
+        bottom: 150px; /* Posição intermediária do pulo (altura máxima) */
+    }
+    50% {
+        bottom: 200px; /* Posição intermediária do pulo (altura máxima) */
+    }
+    60% {
+        bottom: 100px; /* Posição intermediária do pulo (altura máxima) */
+    }
+    100% {
+        bottom: 0; /* Posição final do pulo (de volta ao chão) */
+    }
+}
